@@ -4,29 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Propuesta Alquileres Domux</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#1d2421;--ink2:#4a5550;--mute:#7d8783;--bg:#f6f4ef;--line:rgba(29,36,33,.12);--lake:#2f6f8f;--pine:#2f5a45;--gold:#c79a3b;--sand:#f1d9a1}
+:root{--ink:#162027;--ink2:#46545c;--mute:#7b8790;--bg:#f3f4f5;--line:rgba(22,32,39,.12);--lake:#e74152;--pine:#162027;--gold:#e74152;--sand:#ffffff}
 html{scroll-snap-type:y proximity}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
 .s{min-height:100vh;padding:clamp(2.5rem,6vw,5rem) 16px;display:flex;align-items:center;scroll-snap-align:start;border-bottom:1px solid var(--line);position:relative}
 .in{max-width:1080px;margin:0 auto;width:100%}
 .n{position:absolute;top:1.2rem;right:1.4rem;font-size:.72rem;letter-spacing:.2em;color:var(--mute)}
 .k{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.9rem}
-h1,h2{font-family:'Playfair Display',serif;font-weight:400;line-height:1.1}
+h1,h2{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1}
 h1{font-size:clamp(2.4rem,6vw,4.4rem)}
 h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.2rem;max-width:820px}
-h2 em,h1 em{color:var(--gold)}
+h2 em,h1 em{color:var(--gold);font-style:normal}
 .lead{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--ink2);max-width:720px}
 .dark{background:var(--ink);color:#fff}.dark .lead{color:rgba(255,255,255,.75)}.dark .n{color:rgba(255,255,255,.4)}
-.cover{background:linear-gradient(180deg,rgba(15,25,22,.35),rgba(15,25,22,.8)),url('../foto-23.jpg') center/cover;color:#fff;border:0}
+.cover{background:linear-gradient(180deg,rgba(22,32,39,.45),rgba(22,32,39,.88)),url('img/hero-domux.jpg') center/cover;color:#fff;border:0}
+.cover h1 em{color:#fff;box-shadow:inset 0 -.15em 0 #e74152}
+.brand{height:56px;width:auto;margin-bottom:2rem}
 .cover .lead{color:rgba(255,255,255,.85)}
 .cover .meta{margin-top:3rem;font-size:.85rem;opacity:.8;display:flex;gap:2rem;flex-wrap:wrap}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2rem}
 .c{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.4rem}
 .dark .c{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
-.c h3{font-family:'Playfair Display',serif;font-weight:400;font-size:1.3rem;margin-bottom:.5rem}
+.c h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:.5rem}
 .c p,.c li{font-size:.93rem;color:var(--ink2)}.dark .c p,.dark .c li{color:rgba(255,255,255,.72)}
 .c ul{list-style:none;display:grid;gap:.35rem}.c li::before{content:"— ";color:var(--gold)}
 .ic{font-size:1.6rem;margin-bottom:.6rem}
@@ -44,7 +46,7 @@ h2 em,h1 em{color:var(--gold)}
 .ph{border-top:4px solid var(--lake);background:#fff;border-radius:0 0 6px 6px;padding:1.3rem;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .ph:nth-child(2){border-top-color:var(--pine)}.ph:nth-child(3){border-top-color:var(--gold)}
 .ph small{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-.ph h3{font-family:'Playfair Display',serif;font-weight:400;font-size:1.3rem;margin:.3rem 0 .6rem}
+.ph h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.3rem;margin:.3rem 0 .6rem}
 .ph ul{list-style:none;display:grid;gap:.35rem;font-size:.9rem;color:var(--ink2)}
 .ph li::before{content:"· ";color:var(--gold);font-weight:700}
 table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:.95rem;background:#fff;border-radius:6px;overflow:hidden}
@@ -52,7 +54,7 @@ th,td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
 th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600;background:#faf9f6}
 .tbd{display:inline-block;font-size:.68rem;background:#fff4dc;color:#8a6516;padding:.1rem .45rem;border-radius:3px;margin-left:.3rem;vertical-align:1px}
 .note{font-size:.82rem;color:var(--mute);margin-top:1rem}
-.cta{display:inline-block;margin-top:2rem;background:var(--gold);color:var(--ink);padding:1rem 1.6rem;text-decoration:none;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;font-weight:600;border-radius:2px}
+.cta{display:inline-block;margin-top:2rem;background:var(--gold);color:#fff;padding:1rem 1.6rem;text-decoration:none;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;font-weight:600;border-radius:2px}
 .flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.5rem;font-size:.9rem}
 .flow span{background:#fff;border:1px solid var(--line);border-radius:30px;padding:.45rem .9rem}
 .flow b{color:var(--gold)}
@@ -69,7 +71,8 @@ th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu
 <!-- 1 PORTADA -->
 <section class="s cover">
   <div class="in">
-    <div class="k" style="color:var(--sand)">Propuesta para Domux Bienes Raíces</div>
+    <img class="brand" src="img/logo-domux.png" alt="Domux Inmobiliaria">
+    <div class="k" style="color:#fff">Propuesta de nueva unidad de negocio</div>
     <h1>Alquiler turístico<br>y temporario en <em>Bariloche</em><br>y <em>Dina Huapi</em></h1>
     <p class="lead" style="margin-top:1.2rem">Una nueva unidad de negocio para Domux: administrar propiedades de terceros en renta corta y media, con una web propia de alojamientos, fotos y calendario de ocupación.</p>
     <div class="meta"><span>Presentado por: <b>[Tu nombre]</b></span><span>[Teléfono · Email]</span><span>Noviembre 2026</span></div>
@@ -82,7 +85,7 @@ th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu
   <div class="in">
     <div class="k">La oportunidad</div>
     <h2>Domux ya tiene la cartera y los propietarios. <em>Falta la renta.</em></h2>
-    <p class="lead">Hoy Domux trabaja sobre todo la venta. Muchas de esas propiedades —y muchas de clientes que no quieren vender— pueden generar ingresos todo el año si alguien local las administra bien.</p>
+    <p class="lead">Hoy domux.com.ar ofrece Venta, Alquiler y Tasación. La sección Alquiler tiene 33 propiedades, todas en alquiler tradicional y en pesos. No hay oferta de alquiler turístico ni temporario, que es justamente lo que más se busca en Bariloche y Dina Huapi.</p>
     <div class="cols">
       <div class="c"><div class="ic">🏔️</div><h3>Demanda en dos temporadas</h3><p>Invierno de nieve y verano de lagos. Bariloche es uno de los destinos más buscados del país, y Dina Huapi crece como alternativa tranquila cerca del aeropuerto.</p></div>
       <div class="c"><div class="ic">🧳</div><h3>Demanda de media estadía</h3><p>Personas que llegan por trabajo, estudio, temporada o mudanza buscan 1 a 6 meses amoblado. Es un segmento menos atendido que el turístico.</p></div>
@@ -130,7 +133,7 @@ th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu
       </ul>
       <p class="note">[Completar con tus números: años operando, propiedades, reseñas, ocupación]</p>
     </div>
-    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../foto-21.jpg" alt="Propiedad administrada en Bariloche"></div>
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../foto-21.jpg" alt="Propiedad que administro en Bariloche"></div>
   </div>
 </section>
 
@@ -138,10 +141,11 @@ th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu
 <section class="s">
   <span class="n">05</span>
   <div class="in split">
-    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../foto-25.jpg" alt="Boceto del catálogo de alojamientos"></div>
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="img/captura-boceto.jpg" alt="Boceto de la sección de alquiler turístico en la web de Domux" style="aspect-ratio:auto"></div>
     <div>
       <div class="k">La plataforma</div>
-      <h2>Una sección de alquileres dentro de la web de Domux</h2>
+      <h2>Dos nuevas secciones en domux.com.ar</h2>
+      <p class="lead">Con los mismos colores y el mismo logo de la web actual. Se suman al menú como "Turístico" y "Temporario", sin tocar lo que ya funciona en Tokko Broker.</p>
       <ul class="chk">
         <li><b>Catálogo</b> con filtros: modalidad, localidad, fechas y personas</li>
         <li><b>Ficha</b> de cada alojamiento con galería de fotos y servicios</li>
