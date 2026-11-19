@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Propuesta Alquileres Domux</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1d2421;--ink2:#4a5550;--mute:#7d8783;--bg:#f6f4ef;--line:rgba(29,36,33,.12);--lake:#2f6f8f;--pine:#2f5a45;--gold:#c79a3b;--sand:#f1d9a1}
+html{scroll-snap-type:y proximity}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.s{min-height:100vh;padding:clamp(2.5rem,6vw,5rem) 16px;display:flex;align-items:center;scroll-snap-align:start;border-bottom:1px solid var(--line);position:relative}
+.in{max-width:1080px;margin:0 auto;width:100%}
+.n{position:absolute;top:1.2rem;right:1.4rem;font-size:.72rem;letter-spacing:.2em;color:var(--mute)}
+.k{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.9rem}
+h1,h2{font-family:'Playfair Display',serif;font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,6vw,4.4rem)}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.2rem;max-width:820px}
+h2 em,h1 em{color:var(--gold)}
+.lead{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--ink2);max-width:720px}
+.dark{background:var(--ink);color:#fff}.dark .lead{color:rgba(255,255,255,.75)}.dark .n{color:rgba(255,255,255,.4)}
+.cover{background:linear-gradient(180deg,rgba(15,25,22,.35),rgba(15,25,22,.8)),url('../foto-23.jpg') center/cover;color:#fff;border:0}
+.cover .lead{color:rgba(255,255,255,.85)}
+.cover .meta{margin-top:3rem;font-size:.85rem;opacity:.8;display:flex;gap:2rem;flex-wrap:wrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2rem}
+.c{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.4rem}
+.dark .c{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.c h3{font-family:'Playfair Display',serif;font-weight:400;font-size:1.3rem;margin-bottom:.5rem}
+.c p,.c li{font-size:.93rem;color:var(--ink2)}.dark .c p,.dark .c li{color:rgba(255,255,255,.72)}
+.c ul{list-style:none;display:grid;gap:.35rem}.c li::before{content:"— ";color:var(--gold)}
+.ic{font-size:1.6rem;margin-bottom:.6rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:800px){.split{grid-template-columns:1fr;gap:1.5rem}}
+.shot{border-radius:8px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.18);border:1px solid var(--line);background:#fff}
+.shot .bar{height:26px;background:#e9e6df;display:flex;align-items:center;gap:5px;padding:0 10px}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#cfcac0}
+.shot img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.chk{list-style:none;display:grid;gap:.7rem;margin-top:1rem}
+.chk li{padding-left:1.8rem;position:relative}
+.chk li::before{content:"✓";position:absolute;left:0;color:var(--pine);font-weight:700}
+.phase{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+@media(max-width:800px){.phase{grid-template-columns:1fr}}
+.ph{border-top:4px solid var(--lake);background:#fff;border-radius:0 0 6px 6px;padding:1.3rem;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ph:nth-child(2){border-top-color:var(--pine)}.ph:nth-child(3){border-top-color:var(--gold)}
+.ph small{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.ph h3{font-family:'Playfair Display',serif;font-weight:400;font-size:1.3rem;margin:.3rem 0 .6rem}
+.ph ul{list-style:none;display:grid;gap:.35rem;font-size:.9rem;color:var(--ink2)}
+.ph li::before{content:"· ";color:var(--gold);font-weight:700}
+table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:.95rem;background:#fff;border-radius:6px;overflow:hidden}
+th,td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+th{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600;background:#faf9f6}
+.tbd{display:inline-block;font-size:.68rem;background:#fff4dc;color:#8a6516;padding:.1rem .45rem;border-radius:3px;margin-left:.3rem;vertical-align:1px}
+.note{font-size:.82rem;color:var(--mute);margin-top:1rem}
+.cta{display:inline-block;margin-top:2rem;background:var(--gold);color:var(--ink);padding:1rem 1.6rem;text-decoration:none;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;font-weight:600;border-radius:2px}
+.flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.5rem;font-size:.9rem}
+.flow span{background:#fff;border:1px solid var(--line);border-radius:30px;padding:.45rem .9rem}
+.flow b{color:var(--gold)}
+@media print{
+  html{scroll-snap-type:none}
+  .s{min-height:auto;page-break-after:always;break-after:page;border:0;padding:2.2rem 1.5rem}
+  .cover{min-height:100vh;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dark{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 PORTADA -->
+<section class="s cover">
+  <div class="in">
+    <div class="k" style="color:var(--sand)">Propuesta para Domux Bienes Raíces</div>
+    <h1>Alquiler turístico<br>y temporario en <em>Bariloche</em><br>y <em>Dina Huapi</em></h1>
+    <p class="lead" style="margin-top:1.2rem">Una nueva unidad de negocio para Domux: administrar propiedades de terceros en renta corta y media, con una web propia de alojamientos, fotos y calendario de ocupación.</p>
+    <div class="meta"><span>Presentado por: <b>[Tu nombre]</b></span><span>[Teléfono · Email]</span><span>Noviembre 2026</span></div>
+  </div>
+</section>
+
+<!-- 2 OPORTUNIDAD -->
+<section class="s">
+  <span class="n">02</span>
+  <div class="in">
+    <div class="k">La oportunidad</div>
+    <h2>Domux ya tiene la cartera y los propietarios. <em>Falta la renta.</em></h2>
+    <p class="lead">Hoy Domux trabaja sobre todo la venta. Muchas de esas propiedades —y muchas de clientes que no quieren vender— pueden generar ingresos todo el año si alguien local las administra bien.</p>
+    <div class="cols">
+      <div class="c"><div class="ic">🏔️</div><h3>Demanda en dos temporadas</h3><p>Invierno de nieve y verano de lagos. Bariloche es uno de los destinos más buscados del país, y Dina Huapi crece como alternativa tranquila cerca del aeropuerto.</p></div>
+      <div class="c"><div class="ic">🧳</div><h3>Demanda de media estadía</h3><p>Personas que llegan por trabajo, estudio, temporada o mudanza buscan 1 a 6 meses amoblado. Es un segmento menos atendido que el turístico.</p></div>
+      <div class="c"><div class="ic">🔑</div><h3>Propietarios sin tiempo</h3><p>Muchos dueños viven fuera de la zona o no quieren ocuparse de huéspedes, limpieza ni cobros. Buscan alguien de confianza.</p></div>
+      <div class="c"><div class="ic">🤝</div><h3>Relación de largo plazo</h3><p>Administrar la renta mantiene al propietario cerca de Domux: cuando decida vender o comprar, ya es cliente.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 QUÉ PROPONEMOS -->
+<section class="s dark">
+  <span class="n">03</span>
+  <div class="in">
+    <div class="k">La propuesta</div>
+    <h2>Dos líneas de alquiler bajo la marca Domux</h2>
+    <div class="cols">
+      <div class="c"><h3>Alquiler turístico</h3><ul>
+        <li>Por noche, de 2 a 30 días</li>
+        <li>Tarifas por temporada (alta, media, baja)</li>
+        <li>Publicación en la web de Domux + Airbnb y Booking</li>
+        <li>Check-in, limpieza, ropa blanca y atención al huésped</li></ul></div>
+      <div class="c"><h3>Alquiler temporario / semi permanente</h3><ul>
+        <li>Por mes, de 1 a 6 meses</li>
+        <li>Amoblado, con o sin servicios incluidos</li>
+        <li>Contrato temporario, depósito y garantía</li>
+        <li>Menos rotación, ingreso más estable para el dueño</li></ul></div>
+    </div>
+    <p class="lead" style="margin-top:2rem">La misma propiedad puede alternar: turístico en temporada alta y temporario en los meses tranquilos. Así sube la ocupación anual.</p>
+  </div>
+</section>
+
+<!-- 4 QUÉ APORTO -->
+<section class="s">
+  <span class="n">04</span>
+  <div class="in split">
+    <div>
+      <div class="k">Qué aporto</div>
+      <h2>Experiencia operando alquiler turístico en Bariloche</h2>
+      <p class="lead">Administro alojamientos turísticos en el centro de Bariloche, con web propia, reservas por WhatsApp, publicidad online y calendario de disponibilidad.</p>
+      <ul class="chk">
+        <li>Operación diaria: reservas, check-in, limpieza y mantenimiento</li>
+        <li>Fijación de tarifas por temporada</li>
+        <li>Web, fotos, publicidad en redes y Google</li>
+        <li>Atención a huéspedes antes, durante y después de la estadía</li>
+      </ul>
+      <p class="note">[Completar con tus números: años operando, propiedades, reseñas, ocupación]</p>
+    </div>
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../foto-21.jpg" alt="Propiedad administrada en Bariloche"></div>
+  </div>
+</section>
+
+<!-- 5 LA WEB -->
+<section class="s">
+  <span class="n">05</span>
+  <div class="in split">
+    <div class="shot"><div class="bar"><i></i><i></i><i></i></div><img src="../foto-25.jpg" alt="Boceto del catálogo de alojamientos"></div>
+    <div>
+      <div class="k">La plataforma</div>
+      <h2>Una sección de alquileres dentro de la web de Domux</h2>
+      <ul class="chk">
+        <li><b>Catálogo</b> con filtros: modalidad, localidad, fechas y personas</li>
+        <li><b>Ficha</b> de cada alojamiento con galería de fotos y servicios</li>
+        <li><b>Calendario de ocupación</b> real: el huésped ve qué días están libres</li>
+        <li><b>Cotización automática</b> y consulta directa por WhatsApp</li>
+        <li><b>Panel</b> para que Domux cargue propiedades, fotos y días ocupados</li>
+      </ul>
+      <a class="cta" href="index.html">Ver el boceto navegable →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 CÓMO FUNCIONA -->
+<section class="s dark">
+  <span class="n">06</span>
+  <div class="in">
+    <div class="k">Cómo funciona</div>
+    <h2>Del propietario al huésped, todo en un solo circuito</h2>
+    <div class="flow" style="color:var(--ink)">
+      <span>Propietario se suma</span><b>→</b><span>Visita y tasación de renta</span><b>→</b><span>Fotos y carga en el panel</span><b>→</b><span>Publicación web + portales</span><b>→</b><span>Reserva y seña</span><b>→</b><span>Check-in y estadía</span><b>→</b><span>Liquidación mensual</span>
+    </div>
+    <div class="cols">
+      <div class="c"><h3>Domux</h3><p>Marca, cartera de propietarios, captación, contratos y relación comercial.</p></div>
+      <div class="c"><h3>Operación (yo)</h3><p>Puesta a punto, publicación, tarifas, reservas, huéspedes, limpieza y mantenimiento.</p></div>
+      <div class="c"><h3>Propietario</h3><p>Recibe su liquidación mensual con detalle de ocupación, ingresos y gastos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 FASES -->
+<section class="s">
+  <span class="n">07</span>
+  <div class="in">
+    <div class="k">Plan de trabajo</div>
+    <h2>Arrancamos chico y crecemos por fases</h2>
+    <div class="phase">
+      <div class="ph"><small>Fase 1 · 2 a 4 semanas</small><h3>Lanzamiento</h3><ul>
+        <li>Sección de alquileres en la web de Domux</li>
+        <li>3 a 5 propiedades piloto cargadas</li>
+        <li>Calendario cargado a mano desde el panel</li>
+        <li>Consultas y reservas por WhatsApp</li></ul></div>
+      <div class="ph"><small>Fase 2 · 1 a 2 meses</small><h3>Automatización</h3><ul>
+        <li>Calendario sincronizado con Airbnb y Booking (iCal)</li>
+        <li>Tarifas por temporada en el panel</li>
+        <li>Acceso del propietario a su ocupación</li>
+        <li>Campañas en Google y redes</li></ul></div>
+      <div class="ph"><small>Fase 3 · según resultados</small><h3>Reserva online</h3><ul>
+        <li>Seña online con Mercado Pago</li>
+        <li>Confirmación automática por email</li>
+        <li>Reportes y liquidaciones automáticas</li>
+        <li>Versión en inglés y portugués</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 MODELO COMERCIAL -->
+<section class="s">
+  <span class="n">08</span>
+  <div class="in">
+    <div class="k">Modelo comercial</div>
+    <h2>Ganamos cuando el propietario gana</h2>
+    <p class="lead">Comisión sobre lo que efectivamente se cobra. Los números son una base para conversar.</p>
+    <table>
+      <tr><th>Concepto</th><th>Turístico</th><th>Temporario</th></tr>
+      <tr><td>Comisión de administración sobre lo cobrado</td><td>__ % <span class="tbd">a definir</span></td><td>__ % <span class="tbd">a definir</span></td></tr>
+      <tr><td>Limpieza y ropa blanca</td><td>La paga el huésped</td><td>Al salir</td></tr>
+      <tr><td>Reparto Domux / operación</td><td colspan="2">__ % / __ % <span class="tbd">a definir</span></td></tr>
+      <tr><td>Desarrollo de la web (Fase 1)</td><td colspan="2">$ ______ <span class="tbd">a definir</span></td></tr>
+      <tr><td>Mantenimiento web mensual</td><td colspan="2">$ ______ <span class="tbd">a definir</span></td></tr>
+    </table>
+    <p class="note">Referencia: las administradoras de renta corta suelen cobrar entre un 15% y un 25% de lo facturado; conviene validarlo con la competencia local antes de cerrar.</p>
+  </div>
+</section>
+
+<!-- 9 PRÓXIMOS PASOS -->
+<section class="s dark">
+  <span class="n">09</span>
+  <div class="in">
+    <div class="k">Próximos pasos</div>
+    <h2>Para empezar, <em>tres decisiones</em></h2>
+    <div class="cols">
+      <div class="c"><div class="ic">1</div><h3>Propiedades piloto</h3><p>Elegir 3 a 5 propiedades de la cartera de Domux en Bariloche y Dina Huapi.</p></div>
+      <div class="c"><div class="ic">2</div><h3>Acuerdo comercial</h3><p>Definir comisión, reparto y responsabilidades de cada parte.</p></div>
+      <div class="c"><div class="ic">3</div><h3>Fecha de lanzamiento</h3><p>Apuntar a tener la sección online antes de la próxima temporada alta.</p></div>
+    </div>
+    <p class="lead" style="margin-top:2.5rem">[Tu nombre] · [WhatsApp] · [Email]</p>
+  </div>
+</section>
+
+</body>
+</html>
