@@ -88,6 +88,31 @@ header{position:sticky;top:0;z-index:50;background:#162027;border-bottom:1px sol
 .avail{font-size:.75rem;color:var(--pine);display:flex;align-items:center;gap:.3rem}
 .avail::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .avail.no{color:#b5523b}
+.ver{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:700;color:#1f7a4d;background:#e7f5ee;border-radius:3px;padding:.15rem .5rem;align-self:flex-start}
+.trust{background:#f3f4f5;border-left:4px solid #e74152;border-radius:4px;padding:1rem 1.1rem;margin-top:1.2rem;font-size:.88rem;color:var(--ink2);display:grid;gap:.35rem}
+.trust b{color:var(--ink)}
+.trust .row2{display:flex;flex-wrap:wrap;gap:.4rem}
+.safe{background:#162027;color:#fff;padding:4rem 0}
+.safe .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:820px){.safe .wrap{grid-template-columns:1fr;gap:1.5rem}}
+.safe h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2rem;line-height:1.15;margin-bottom:1rem}
+.safe p{opacity:.82;margin-bottom:.8rem}
+.check{background:#fff;color:var(--ink);border-radius:6px;padding:1.4rem;display:grid;gap:.8rem}
+.check h3{font-family:'Montserrat',sans-serif;font-size:1.1rem}
+.check form{display:flex;gap:.5rem;flex-wrap:wrap}
+.check input{flex:1;min-width:0;border:1px solid var(--line);border-radius:3px;padding:.7rem .8rem;font-size:1rem}
+.check .res{font-size:.92rem;border-radius:4px;padding:.8rem .9rem;display:none}
+.check .res.ok{display:block;background:#e7f5ee;color:#1f5c3d}
+.check .res.bad{display:block;background:#fdebed;color:#9b2433}
+.save{padding:4rem 0}
+.save .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:760px}
+@media(max-width:640px){.save .grid2{grid-template-columns:1fr}}
+.save .col{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.3rem}
+.save .col.best{border:2px solid #e74152}
+.save .col h4{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:.7rem}
+.save .r{display:flex;justify-content:space-between;padding:.3rem 0;font-size:.95rem;font-variant-numeric:tabular-nums}
+.save .tot{border-top:1px solid var(--line);margin-top:.4rem;padding-top:.6rem;font-weight:800;font-size:1.3rem}
+.save .col.best .tot{color:#e74152}
 .empty{grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--mute)}
 
 /* banda propietarios */
@@ -245,6 +270,43 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-siz
   <div class="grid" id="grid"></div>
 </main>
 
+<section class="safe" id="comprobar">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Reservas seguras</div>
+      <h2>Antes de mandar una seña, comprobá que estás hablando con Domux</h2>
+      <p>Cada temporada aparecen avisos copiados: usan las fotos de un alojamiento real, ponen otro WhatsApp y piden una seña por transferencia.</p>
+      <p>Todas las propiedades de esta sección las administra Domux, una inmobiliaria con oficinas en Dina Huapi y Bariloche y martillera matriculada. Ingresá el número que te escribe o el código del aviso y te decimos si es oficial.</p>
+    </div>
+    <div class="check">
+      <h3>Comprobar un aviso</h3>
+      <form onsubmit="event.preventDefault();verify()">
+        <input id="v-in" placeholder="WhatsApp o código (ej: 2944239440)" aria-label="WhatsApp o código del aviso">
+        <button class="btn lake" type="submit">Comprobar</button>
+      </form>
+      <div class="res" id="v-res"></div>
+      <small style="color:var(--mute)">Probá con 2944239440 (oficial) o con cualquier otro número.</small>
+    </div>
+  </div>
+</section>
+
+<section class="save">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Reservá directo y pagá menos</h2><p>Ejemplo con una estadía de USD 600. Las grandes plataformas le suman al huésped un cargo por servicio; reservando directo con Domux, no.</p></div></div>
+    <div class="grid2">
+      <div class="col"><h4>En una plataforma</h4>
+        <div class="r"><span>Estadía</span><span>USD 600</span></div>
+        <div class="r"><span>Cargo por servicio (ej. 14 %)</span><span>USD 84</span></div>
+        <div class="r tot"><span>Pagás</span><span>USD 684</span></div></div>
+      <div class="col best"><h4>Directo en domux.com.ar</h4>
+        <div class="r"><span>Estadía</span><span>USD 600</span></div>
+        <div class="r"><span>Cargo por servicio</span><span>USD 0</span></div>
+        <div class="r tot"><span>Pagás</span><span>USD 600</span></div></div>
+    </div>
+    <p style="font-size:.78rem;color:var(--mute);margin-top:.8rem">Porcentaje de ejemplo: el cargo real varía según la plataforma y la reserva.</p>
+  </div>
+</section>
+
 <section class="compare">
   <div class="wrap">
     <div class="sec-head"><div><h2>Dos modalidades, una sola administración</h2></div></div>
@@ -284,8 +346,8 @@ footer b{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-siz
     <div class="steps">
       <div class="step"><b>1</b><div><strong>Visita y tasación de renta</strong>Evaluamos la propiedad y sugerimos modalidad y tarifa.</div></div>
       <div class="step"><b>2</b><div><strong>Fotos y publicación</strong>Producción de fotos y publicación en la web de Domux y en portales.</div></div>
-      <div class="step"><b>3</b><div><strong>Operación diaria</strong>Reservas, check-in, limpieza, mantenimiento y atención al huésped.</div></div>
-      <div class="step"><b>4</b><div><strong>Liquidación mensual</strong>Reporte de ocupación, ingresos y gastos en tu cuenta.</div></div>
+      <div class="step"><b>3</b><div><strong>Operación diaria</strong>Reservas, check-in online con registro de pasajeros, guía digital del huésped (wifi, cómo entrar, calefacción), limpieza y mantenimiento.</div></div>
+      <div class="step"><b>4</b><div><strong>Tu panel y liquidación</strong>Ocupación, ingresos y noches vendidas mes a mes. Te avisamos antes de que venzan el matafuego, el seguro o la habilitación.</div></div>
     </div>
   </div>
 </section>
@@ -432,6 +494,7 @@ function nextFree(item){
   return -1;
 }
 function fmtDate(i){return addDays(today,i).toLocaleDateString('es-AR',{day:'numeric',month:'short'})}
+function code(it){return (it.mode==='turistico'?'DTU':'DTE')+String(Math.abs([...it.id].reduce((a,c)=>a*31+c.charCodeAt(0),7))%1000000).padStart(6,'0')}
 function priceTxt(it){return it.mode==='turistico'?`USD ${it.price} <small>/ noche</small>`:`USD ${it.price} <small>/ mes</small>`}
 
 function render(){
@@ -454,6 +517,7 @@ function render(){
       <div class="bd">
         <div class="loc">${esc(it.loc)} · ${esc(it.zone||'')}</div>
         <h3>${esc(it.name)}</h3>
+        <span class="ver">✓ Administrado por Domux</span>
         <div class="feat">${it.pax} huéspedes · ${it.rooms} dorm. · ${it.amen.slice(0,3).join(' · ')}</div>
         <div class="ft"><span class="price">${priceTxt(it)}</span>${av}</div>
       </div></article>`}).join('');
@@ -497,6 +561,11 @@ function openDetail(id){
         <div style="color:var(--ink2)">${it.pax} huéspedes · ${it.rooms} dormitorios · estadía mínima ${it.min} ${t?'noches':'meses'}</div>
         <div class="chips">${it.amen.map(x=>`<span class="chip">${x}</span>`).join('')}</div>
         <p class="desc">${esc(it.desc)}</p>
+        <div class="trust">
+          <b>✓ Propiedad administrada por Domux Inmobiliaria</b>
+          <div class="row2"><span class="chip">Martillera matriculada</span><span class="chip">Habilitación turística revisada</span><span class="chip">Código ${esc(code(it))}</span></div>
+          <span>Reservá solo por domux.com.ar o por el WhatsApp oficial (294) 4239440. Si ves este alojamiento con otro número, comprobalo abajo antes de pagar.</span>
+        </div>
       </div>
       <div class="box">
         <h4>Disponibilidad</h4>
@@ -583,6 +652,16 @@ function drawMine(){
   m.innerHTML=MINE.length?'<h4 style="font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)">Cargados por vos</h4>'+MINE.map(it=>`<div class="it"><img src="${it.photos[0]}" alt=""><div><b>${esc(it.name)}</b><br><span style="color:var(--mute)">${it.mode==='turistico'?'Turístico':'Temporario'} · ${esc(it.loc)} · ${it.busy.length} días ocupados</span></div><button onclick="delMine('${it.id}')">Borrar</button></div>`).join(''):'';
 }
 function delMine(id){MINE=MINE.filter(x=>x.id!==id);saveMine(MINE);drawMine();render()}
+function verify(){
+  const raw=document.getElementById('v-in').value.trim(), r=document.getElementById('v-res');
+  const digits=raw.replace(/\D/g,''), up=raw.toUpperCase().replace(/\s/g,'');
+  r.className='res';
+  if(!raw){return}
+  const hit=all().find(it=>code(it)===up);
+  if(digits.endsWith('2944239440')){r.className='res ok';r.textContent='✓ Es el WhatsApp oficial de Domux. Podés reservar con tranquilidad.'}
+  else if(hit){r.className='res ok';r.innerHTML='✓ Código oficial: <b>'+esc(hit.name)+'</b>, administrado por Domux.'}
+  else{r.className='res bad';r.textContent='✗ Este número o código no es de Domux. No mandes ninguna seña y escribinos al (294) 4239440.'}
+}
 let tt;function toast(s){const t=document.getElementById('toast');t.textContent=s;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
 
 render();
